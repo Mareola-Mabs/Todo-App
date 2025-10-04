@@ -1,0 +1,18 @@
+<%- include('partials/header', { title: 'Login', user: user }) %>
+<section class="form-card">
+  <h2>Login</h2>
+  <% if (typeof error !== 'undefined') { %>
+    <p class="error"><%= error %></p>
+  <% } %>
+  <form method="post" action="/login">
+    <label>Username
+      <input name="username" required placeholder="username">
+    </label>
+    <label>Password
+      <input type="password" name="password" required placeholder="password">
+    </label>
+    <button class="btn primary" type="submit">Login</button>
+  </form>
+  <p>Don't have an account? <a href="/signup">Signup</a></p>
+</section>
+<%- include('partials/footer') %>

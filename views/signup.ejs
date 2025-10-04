@@ -1,0 +1,19 @@
+<%- include('partials/header', { title: 'Error', user: typeof user !== 'undefined' ? user : null }) %>
+
+<section class="form-card">
+  <h2>Create an account</h2>
+  <% if (typeof error !== 'undefined') { %>
+    <p class="error"><%= error %></p>
+  <% } %>
+  <form method="post" action="/signup">
+    <label>Username
+      <input name="username" required placeholder="username">
+    </label>
+    <label>Password
+      <input type="password" name="password" required placeholder="password">
+    </label>
+    <button class="btn primary" type="submit">Signup</button>
+  </form>
+  <p>Already have an account? <a href="/login">Login</a></p>
+</section>
+<%- include('partials/footer') %>

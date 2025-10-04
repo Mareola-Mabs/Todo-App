@@ -1,0 +1,10 @@
+<%- include('partials/header', { title: 'Home', user: user }) %>
+<section class="hero">
+  <h1>Welcome to the Todo App</h1>
+  <% if (!user) { %>
+    <p><a class="btn primary" href="/signup">Get started</a></p>
+  <% } else { %>
+    <p><a class="btn" href="/tasks">View your tasks</a></p>
+  <% } %>
+</section>
+<%- include('partials/footer') %>

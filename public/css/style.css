@@ -1,0 +1,38 @@
+/* Basic, clean styles for the todo app */
+:root{
+  --bg: #f7f7fb;
+  --card: #fff;
+  --text: #1f2937;
+  --accent: #2563eb;
+  --danger: #dc2626;
+}
+*{box-sizing:border-box}
+body{font-family:Inter,system-ui,Arial,sans-serif;background:var(--bg);color:var(--text);margin:0;padding:0}
+.site-header{background:#fff;border-bottom:1px solid #e6e6e6}
+.nav{max-width:900px;margin:0 auto;padding:1rem;display:flex;justify-content:space-between;align-items:center}
+.brand{font-weight:700;color:var(--accent);text-decoration:none}
+.nav-right{display:flex;gap:.5rem;align-items:center}
+.btn{display:inline-block;padding:.4rem .7rem;border-radius:6px;border:1px solid transparent;background:transparent;cursor:pointer}
+.btn.primary{background:var(--accent);color:#fff}
+.btn.danger{background:var(--danger);color:#fff}
+.main{max-width:900px;margin:2rem auto;padding:1rem}
+.form-card{background:var(--card);padding:1.2rem;border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,.06)}
+.error{color:var(--danger)}
+.tasks-head{display:flex;justify-content:space-between;align-items:center}
+.task-list{list-style:none;padding:0;margin:1rem 0}
+.task-item{display:flex;justify-content:space-between;align-items:flex-start;padding:.7rem;border-radius:6px;background:#fff;margin-bottom:.6rem;border:1px solid #eee}
+.task-item.completed{opacity:.7}
+.task-item.deleted{background:#fff3f3}
+.task-actions form{display:inline;margin-left:.5rem}
+.create-task{margin-top:1rem}
+input[type=text],input[type=password]{padding:.5rem;border:1px solid #ddd;border-radius:6px;width:100%;margin:.4rem 0}
+button.btn{
+    background: lightgreen;
+}
+button.btn1{
+    background: lightblue;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+}

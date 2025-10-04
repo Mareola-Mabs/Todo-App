@@ -1,0 +1,56 @@
+<%- include('partials/header', { title: 'Your Tasks', user: user }) %>
+<section class="tasks">
+  <div class="tasks-head">
+    <h2>Your Tasks</h2>
+    <form class="filter-form" action="/tasks" method="get">
+      <label>Filter
+        <select name="status" onchange="this.form.submit()">
+            <option value="" <%= !filterStatus ? 'selected' : '' %>>All</option>
+            <option value="pending" <%= filterStatus === 'pending' ? 'selected' : '' %>>Pending</option>
+            <option value="completed" <%= filterStatus === 'completed' ? 'selected' : '' %>>Completed</option>
+        </select>
+
+      </label>
+    </form>
+  </div>
+
+  <% if (tasks.length === 0) { %>
+    <p>No tasks yet. Create one below.</p>
+  <% } %>
+
+  <ul class="task-list">
+    <% tasks.forEach(t => { %>
+      <li class="task-item <%= t.status %>">
+        <div class="task-main">
+          <strong><%= t.title %></strong>
+          <% if (t.description) { %>
+            <div class="desc"><%= t.description %></div>
+          <% } %>
+        </div>
+        <div class="task-actions">
+          <% if (t.status !== 'completed') { %>
+            <form method="post" action="/tasks/<%= t._id %>/status" style="display:inline">
+              <input type="hidden" name="status" value="completed">
+              <button class="btn" type="submit">Mark Completed</button>
+            </form>
+          <% } %>
+          <% if (t.status !== 'deleted') { %>
+            <form method="post" action="/tasks/<%= t._id %>/delete" style="display:inline">
+              <button class="btn danger" type="submit">Delete</button>
+            </form>
+          <% } %>
+        </div>
+      </li>
+    <% }) %>
+  </ul>
+
+  <div class="create-task">
+    <h3>Create Task</h3>
+    <form method="post" action="/tasks">
+      <input name="title" placeholder="Title" required>
+      <input name="description" placeholder="Description">
+      <button class="btn primary" type="submit">Create</button>
+    </form>
+  </div>
+</section>
+<%- include('partials/footer') %>
